@@ -107,7 +107,13 @@ CREATE UNIQUE INDEX "Formation_designation_key" ON "Formation"("designation");
 CREATE UNIQUE INDEX "Apprenant_matricule_key" ON "Apprenant"("matricule");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Apprenant_email_key" ON "Apprenant"("email");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Coach_matricule_key" ON "Coach"("matricule");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Coach_email_key" ON "Coach"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Ordinateur_tag_key" ON "Ordinateur"("tag");

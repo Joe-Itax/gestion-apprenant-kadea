@@ -2,20 +2,19 @@ const { Router } = require("express");
 
 const formationRouter = Router();
 
-const { PrismaClient } = require("@prisma/client");
-const { formation } = new PrismaClient();
-formationRouter.post("/", async function (req, res) {
-  try {
-    const newFormation = req.body;
+const {
+  getAllFormation,
+  postNewFormation,
+  modifyFormation,
+  deleteOneFormation,
+} = require("../controllers/formation.controller");
 
-    const addedFormation = await formation.create({ data: newFormation });
+formationRouter.get("/", getAllFormation);
 
-    res.status(201).json({ message: "Formation créer", data: addedFormation });
-  } catch (error) {
-    return res.status(500).json({ message: error.message });
-  }
-});
+formationRouter.post("/", postNewFormation);
 
-//formationRouter.get();
+formationRouter.patch("/:id", modifyFormation);
+
+formationRouter.delete("/:id", deleteOneFormation);
 
 module.exports = formationRouter;
